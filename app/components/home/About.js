@@ -52,7 +52,7 @@ export default function About() {
 
           {/* COLUMNA DE IMAGEN */}
           <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-            {/* Imagen de fondo (Usé una genérica de taller, después poné una tuya real) */}
+            {/* Imagen de fondo */}
             <img 
               src="https://images.unsplash.com/photo-1632823471565-1ec2a1ad1312?q=80&w=1000&auto=format&fit=crop" 
               alt="Taller Cerrajería SyF" 

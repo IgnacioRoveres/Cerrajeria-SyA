@@ -1,11 +1,11 @@
 import connectDB from "@/lib/db";
 import Product from "@/models/Product";
-import ProductCard from "../shop/ProductCard"; // Ajustá la ruta según donde esté tu componente
-import Link from "next/link"; // Usamos Link en vez de <a> para que sea más rápido
+import ProductCard from "../shop/ProductCard"; 
+import Link from "next/link";
 
 export default async function FeaturedProducts() {
   
-  // 1. Conexión y Búsqueda (Igual que antes)
+  // 1. Conexión y Búsqueda
   await connectDB();
   const productsDocs = await Product.find({ featured: true }).limit(4).lean();
 

@@ -25,7 +25,7 @@ export async function POST(req) {
   }
 }
 
-// 3. ACTUALIZAR PRODUCTO (PUT) - ¡NUEVO!
+// 3. ACTUALIZAR PRODUCTO (PUT)
 export async function PUT(req) {
   try {
     await connectDB();
@@ -41,7 +41,7 @@ export async function PUT(req) {
   }
 }
 
-// 4. BORRAR PRODUCTO (DELETE) - ¡NUEVO!
+// 4. BORRAR PRODUCTO (DELETE) 
 export async function DELETE(req) {
   try {
     await connectDB();

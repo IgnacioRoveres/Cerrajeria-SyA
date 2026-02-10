@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Lock } from "lucide-react"; // Asegurate de tener lucide-react instalado, o usá un svg
+import { Lock } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();

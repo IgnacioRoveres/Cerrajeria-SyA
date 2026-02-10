@@ -10,7 +10,7 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        // CORRECCIÓN: Validamos primero que credentials no sea null o undefined
+        //Validamos primero que credentials no sea null o undefined
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
@@ -28,7 +28,7 @@ const handler = NextAuth({
     })
   ],
   pages: {
-    signIn: '/login', // Tu página personalizada
+    signIn: '/login',
   },
   secret: process.env.NEXTAUTH_SECRET,
 });

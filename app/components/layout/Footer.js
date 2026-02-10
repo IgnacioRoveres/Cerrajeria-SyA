@@ -68,7 +68,7 @@ export default function Footer() {
 
             {/* DATA FISCAL (Simulación del Cartel de AFIP) */}
             <div className="mt-4 bg-white p-2 rounded w-32 h-auto hover:opacity-90 transition-opacity cursor-pointer">
-               {/* Acá iría la imagen real del QR de AFIP cuando la tengas */}
+               {/* Acá va la imagen real del QR de AFIP cuando la tenga */}
                <div className="border border-gray-300 p-1 flex flex-col items-center justify-center h-full text-center">
                   <span className="text-black font-bold text-[10px] leading-tight">DATA FISCAL</span>
                   <span className="text-gray-500 text-[8px]">AFIP - Datos registrados</span>

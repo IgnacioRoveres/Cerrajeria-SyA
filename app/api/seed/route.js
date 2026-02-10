@@ -1,8 +1,8 @@
-import connectDB from "@/lib/db";         // <--- Mucho más limpio
-import Product from "@/models/Product";   // <--- Mucho más limpio
+import connectDB from "@/lib/db";         
+import Product from "@/models/Product";  
 import { NextResponse } from "next/server";
 
-// OJO ACÁ: Tiene que decir "GET" en mayúsculas y NO debe decir "default"
+//Tiene que decir "GET" en mayúsculas y NO debe decir "default"
 export async function GET() {
   try {
     await connectDB();
