@@ -29,11 +29,11 @@ export default function About() {
               </p>
               <p>
                 Trabajamos con sistemas de última generación para garantizar la máxima seguridad 
-                de tu vehículo. Atención personalizada y respaldo técnico garantizado en todo Zárate.
+                de tu vehículo. Atención personalizada y respaldo técnico garantizado en todo La Plata.
               </p>
             </div>
 
-            {/* Estadísticas (Los números de abajo) */}
+            {/* Estadísticas */}
             <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
               <div>
                 <p className="text-3xl font-bold text-syf-red">15+</p>
@@ -50,17 +50,22 @@ export default function About() {
             </div>
           </div>
 
-          {/* COLUMNA DE IMAGEN */}
+          {/* COLUMNA DE IMAGEN CON "FILTRO TALLER" */}
           <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-            {/* Imagen de fondo */}
+            
+            {/* TRUCO: 
+               1. grayscale: La pone en blanco y negro (oculta colores feos).
+               2. brightness-75: La oscurece un poco (oculta suciedad/desorden).
+               3. hover:grayscale-0: Si le pasan el mouse, se ve a color.
+            */}
             <img 
-              src="https://images.unsplash.com/photo-1632823471565-1ec2a1ad1312?q=80&w=1000&auto=format&fit=crop" 
+              src="/images/taller.jpg" 
               alt="Taller Cerrajería SyF" 
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover grayscale brightness-75 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
             />
             
-            {/* Gradiente oscuro sobre la imagen para que no brille tanto */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            {/* Sombra extra para leer mejor si la foto es clara */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
           </div>
 
         </div>

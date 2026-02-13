@@ -1,10 +1,14 @@
-'use client';
+'use client'; 
 
 import Link from 'next/link';
 import { ShoppingCart, Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
+
+  const { totalItems } = useCart(); 
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -14,7 +18,6 @@ export default function Navbar() {
           
           {/* 1. LOGO (Izquierda) */}
           <Link href="/" className="flex items-center gap-2">
-            {/* Simulo el logo rojo con un círculo css por ahora */}
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-syf-red text-white font-bold">
               S
             </div>
@@ -37,20 +40,21 @@ export default function Navbar() {
 
           {/* 3. ICONOS (Derecha) */}
           <div className="flex items-center gap-4">
-            {/* Link a Servicios (Escritorio) */}
+            <Link href="/catalogo" className="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">
+              Catálogo
+            </Link>
             <Link href="/servicios" className="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">
               Servicios
             </Link>
 
-            {/* Carrito */}
-            <Link href="/carrito" className="relative group">
-              <div className="p-2 text-gray-300 transition-colors group-hover:text-syf-red">
-                <ShoppingCart className="h-6 w-6" />
-                {/* Badge de contador (Hardcodeado en 0 por ahora) */}
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-syf-red text-[10px] font-bold text-white">
-                  0
-                </span>
-              </div>
+            {/* Carrito con Contador */}
+            <Link href="/carrito" className="relative p-2 text-gray-300 hover:text-syf-red transition-colors">
+                <ShoppingCart size={24} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-syf-red text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-syf-dark">
+                    {totalItems}
+                  </span>
+                )}
             </Link>
 
             {/* Menú Hamburgesa (Móvil) */}

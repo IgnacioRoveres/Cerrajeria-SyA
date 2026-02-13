@@ -17,7 +17,7 @@ export default function Hero() {
           {/* Badge superior */}
           <div className="mb-6 inline-flex items-center rounded-full border border-syf-red/30 bg-syf-red/10 px-3 py-1 text-sm font-medium text-syf-red">
             <span className="mr-2 flex h-2 w-2 rounded-full bg-syf-red"></span>
-            Envíos a todo Zárate y alrededores
+            Envíos a todo La Plata 
           </div>
 
           {/* Título Principal */}

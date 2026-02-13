@@ -18,16 +18,16 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="text-syf-red shrink-0" size={20} />
                 <span>
-                  Av. Lavalle y Laprida<br/>
-                  Zárate, Buenos Aires<br/>
-                  CP 2800
+                  Av. 7 3504, <br/> 
+                  Villa Elvira, Buenos Aires <br/>
+                  CP B1914
                 </span>
               </li>
 
               {/* Teléfono */}
               <li className="flex items-center gap-3">
                 <Phone className="text-syf-red shrink-0" size={20} />
-                <span>+54 9 3487 123456</span>
+                <span>+54 9 022 544121</span>
               </li>
 
               {/* Horarios */}
@@ -35,8 +35,8 @@ export default function Footer() {
                 <Clock className="text-syf-red shrink-0" size={20} />
                 <div className="space-y-1">
                   <p className="font-bold text-white">Horarios de Atención:</p>
-                  <p>Lunes a Viernes: 8:00 - 20:00</p>
-                  <p>Sábados: 9:00 - 14:00</p>
+                  <p>Lunes a Viernes: 8:30 - 19:00</p>
+                  <p>Sábados: 9:00 - 13:00</p>
                   <p>Domingos: Cerrado</p>
                 </div>
               </li>
@@ -54,7 +54,7 @@ export default function Footer() {
               <p className="text-sm mb-4 text-left md:text-center">Seguinos para ofertas y novedades</p>
               
               <div className="flex gap-3 justify-start md:justify-center">
-                <a href="#" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
+                <a href="https://www.instagram.com/cerrajeriasyf01/" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
                   <Instagram size={20} />
                 </a>
                 <a href="#" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
