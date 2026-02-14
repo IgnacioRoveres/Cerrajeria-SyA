@@ -67,7 +67,7 @@ export default function LoginPage() {
       setLoading(false);
       generateCaptcha();
     } else {
-      router.push("/admin");
+      router.push("/panel");
       router.refresh();
     }
   };
