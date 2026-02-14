@@ -5,6 +5,7 @@ import FeaturedProducts from "./components/home/FeaturedProducts"; // <--- Tu nu
 import About from "./components/home/About";
 import Brands from "./components/home/Brands";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-syf-dark">      
