@@ -1,37 +1,43 @@
-import { NextResponse } from "next/server";
-import path from "path";
-import { writeFile } from "fs/promises";
+import { v2 as cloudinary } from 'cloudinary';
+import { NextResponse } from 'next/server';
 
-export async function POST(req) {
+// Configuración (ya la tenés en .env, esto la lee)
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+export async function POST(request) {
   try {
-    const data = await req.formData();
-    const file = data.get("file");
+    const data = await request.formData();
+    const file = data.get('file');
 
     if (!file) {
-      return NextResponse.json({ error: "No se recibió ningún archivo." }, { status: 400 });
+      return NextResponse.json({ error: "No se subió ningún archivo" }, { status: 400 });
     }
 
-    // 1. Convertimos el archivo a un Buffer (formato que entiende el disco duro)
+    // Convertir el archivo a un Buffer para que Cloudinary lo entienda
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // 2. Generamos un nombre único para que no se pisen (ej: imagen-123456789.png)
-    // Limpiamos el nombre original de espacios y caracteres raros
-    const filename = Date.now() + '-' + file.name.replaceAll(" ", "_");
+    // Subir a Cloudinary (Promesa)
+    const result = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "catalogo-syf" }, // Carpeta en la nube
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(buffer);
+    });
+
+    // Devolver la URL segura (https)
+    return NextResponse.json({ url: result.secure_url });
     
-    // 3. Definimos la ruta donde se va a guardar (dentro de public/uploads)
-    const uploadPath = path.join(process.cwd(), "public/uploads", filename);
-
-    // 4. Escribimos el archivo en el disco
-    await writeFile(uploadPath, buffer);
-
-    // 5. Devolvemos la URL pública (la que va a usar la web)
-    const url = `/uploads/${filename}`;
-    
-    return NextResponse.json({ url });
-
   } catch (error) {
-    console.error("Error al subir archivo:", error);
-    return NextResponse.json({ error: "Falló la subida de imagen." }, { status: 500 });
+    console.error("Error subiendo imagen:", error);
+    return NextResponse.json({ error: "Error en el servidor" }, { status: 500 });
   }
 }

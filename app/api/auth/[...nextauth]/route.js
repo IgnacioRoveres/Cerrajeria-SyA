@@ -6,31 +6,41 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        email: { label: "Usuario", type: "text" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        //Validamos primero que credentials no sea null o undefined
+        // 1. ESPÍAS PARA DEBUG (Mirar Logs de Vercel si falla)
+        console.log("--- INTENTO DE LOGIN ---");
+        console.log("Ingresado:", credentials?.email); 
+        console.log("Esperado (Vercel):", process.env.ADMIN_USERNAME);
+
+        // Validamos que lleguen datos
         if (!credentials?.email || !credentials?.password) {
+          console.log("❌ Faltan usuario o contraseña");
           return null;
         }
 
+        // 2. COMPARACIÓN (Usamos las variables de entorno)
+        // Nota: credentials.email es lo que viene del input name="email"
         const isValidUser = 
-          credentials.email === process.env.ADMIN_EMAIL &&
+          credentials.email === process.env.ADMIN_USERNAME &&
           credentials.password === process.env.ADMIN_PASSWORD;
 
         if (isValidUser) {
-          return { id: "1", name: "Ignacio Admin", email: credentials.email };
+          console.log("✅ Acceso Concedido");
+          return { id: "1", name: "Admin SyF", email: credentials.email };
         } else {
+          console.log("⛔ Credenciales Incorrectas");
           return null;
         }
       }
     })
   ],
   pages: {
-    signIn: '/login',
+    signIn: '/login', // Asegurate que tu página de login esté en esta ruta
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, // Variable obligatoria en Vercel
 });
 
 export { handler as GET, handler as POST };

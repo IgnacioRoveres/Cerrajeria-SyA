@@ -7,8 +7,12 @@ import { CartProvider } from "@/context/CartContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Cerrajería SyF",
-  description: "Repuestos del automotor y cerrajería en Zárate",
+  title: "Cerrajería SyF | Repuestos y Copias en La plata",
+  description: "Cerrajería del automotor y residencial. Venta de repuestos, carcasas, llaves codificadas y aceites. Urgencias en La Plata. Pedí online.",
+  keywords: ["cerrajería La Plata", "llaves codificadas", "repuestos automotor", "cambio de aceite", "copias de llaves"],
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }) {
