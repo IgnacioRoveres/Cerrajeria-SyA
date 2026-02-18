@@ -54,7 +54,7 @@ export default function Footer() {
               <p className="text-sm mb-4 text-left md:text-center">Seguinos para ofertas y novedades</p>
               
               <div className="flex gap-3 justify-start md:justify-center">
-                <a href="https://www.instagram.com/cerrajeriasyf01/" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
+                <a href="https://www.instagram.com/cerrajeriasyf01/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
                   <Instagram size={20} />
                 </a>
                 <a href="#" className="flex h-10 w-10 items-center justify-center rounded bg-white/10 hover:bg-syf-red hover:text-white transition-all">
@@ -84,19 +84,24 @@ export default function Footer() {
 
           </div>
 
-          {/* COLUMNA 3: INFORMACIÓN LEGAL */}
+          {/* COLUMNA 3: INFORMACIÓN LEGAL (LINKS ACTUALIZADOS) */}
           <div className="md:text-right">
             <h4 className="text-lg font-bold text-syf-red uppercase tracking-wider mb-6">Información Legal</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#" className="hover:text-white transition-colors">Cómo comprar</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Preguntas Frecuentes</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Política de Garantías</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Términos y Condiciones</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Política de Privacidad</Link></li>
+              <li><Link href="/como-comprar" className="hover:text-white transition-colors">Cómo comprar</Link></li>
+              <li><Link href="/preguntas-frecuentes" className="hover:text-white transition-colors">Preguntas Frecuentes</Link></li>
+              <li><Link href="/garantia" className="hover:text-white transition-colors">Política de Garantías</Link></li>
+              <li><Link href="/terminos" className="hover:text-white transition-colors">Términos y Condiciones</Link></li>
+              <li><Link href="/privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link></li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors font-semibold mt-2 block">
-                  Defensa al Consumidor
-                </Link>
+                <a 
+                  href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors font-semibold mt-2 flex items-center justify-end gap-1"
+                >
+                  Defensa al Consumidor ↗
+                </a>
               </li>
             </ul>
           </div>

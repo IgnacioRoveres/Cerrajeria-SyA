@@ -34,9 +34,9 @@ export default async function FeaturedProducts() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-4xl font-bold text-white mb-2">
-              🔥 Destacados del Mes
+              Productos destacados
             </h2>
-            <p className="text-gray-400">Las mejores ofertas en seguridad y repuestos.</p>
+            <p className="text-gray-400">Las mejores ofertas en insumos y repuestos.</p>
           </div>
           <Link 
             href="/catalogo" 
