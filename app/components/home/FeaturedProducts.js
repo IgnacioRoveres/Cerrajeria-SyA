@@ -3,9 +3,8 @@ import Link from "next/link";
 // Función para traer los datos (sin guardar caché vieja)
 async function getFeaturedProducts() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://cerrajeria-sya.vercel.app/";
     
-    // 🔥 CLAVE: { cache: "no-store" } obliga a buscar datos nuevos siempre
     const res = await fetch(`${apiUrl}/api/products`, { cache: "no-store" });
     
     if (!res.ok) return [];
