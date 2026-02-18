@@ -3,8 +3,8 @@ import { ArrowLeft, HelpCircle } from "lucide-react";
 
 export default function FAQPage() {
   const faqs = [
-    { q: "¿Tienen local a la calle?", a: "Sí, estamos en Zárate, Buenos Aires. Podés retirar tu pedido coordinando previamente el horario." },
-    { q: "¿Hacen envíos a todo el país?", a: "Sí, despachamos a través de Correo Argentino y Vía Cargo. El costo del envío corre por cuenta del comprador." },
+    { q: "¿Tienen local a la calle?", a: "Sí, estamos en Villa Elvira, Buenos Aires. Podés retirar tu pedido coordinando previamente el horario." },
+    { q: "¿Hacen envíos a todo el país?", a: "No, solamente hacemos envios en la zona de La Plata" },
     { q: "¿Qué medios de pago aceptan?", a: "Aceptamos efectivo, transferencia bancaria, Cuenta DNI y Mercado Pago (tarjetas de crédito/débito)." },
     { q: "¿Hacen copias de llaves codificadas?", a: "Sí, realizamos copias y programación de llaves para la mayoría de las marcas y modelos de vehículos." },
     { q: "¿Los precios incluyen IVA?", a: "Los precios publicados en el catálogo son finales para consumidor final." },

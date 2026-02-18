@@ -6,7 +6,7 @@ export default function ComoComprarPage() {
     { icon: <ShoppingCart size={32} />, title: "1. Elegí tus productos", desc: "Navegá por nuestro catálogo y agregá lo que necesites al carrito." },
     { icon: <MessageCircle size={32} />, title: "2. Enviá tu pedido", desc: "Desde el carrito, hacé clic en 'Enviar por WhatsApp'. Se abrirá un chat con el detalle listo." },
     { icon: <CreditCard size={32} />, title: "3. Coordiná el pago", desc: "Te confirmamos el stock y te pasamos los datos para transferir o pagar con QR." },
-    { icon: <Truck size={32} />, title: "4. Recibí tu compra", desc: "Despachamos por correo, moto-mensajería o podés retirar por el taller en Zárate." },
+    { icon: <Truck size={32} />, title: "4. Recibí tu compra", desc: "Despachamos por correo o podés retirar por el local." },
   ];
 
   return (
