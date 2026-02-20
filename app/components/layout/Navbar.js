@@ -29,7 +29,7 @@ export default function Navbar() {
           {/* 1. LOGO (Izquierda) */}
          <Link href="/" className="flex items-center shrink-0 transition-transform hover:scale-105">
           <img 
-          src="/images/logo-completo.png" 
+          src="/images/Logo-syf-blanco.png" 
           alt="Cerrajería SyF" 
           className="h-14 object-contain" // Ajustá el h-14 si queda muy chico o grande
           />
