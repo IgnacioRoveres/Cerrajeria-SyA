@@ -11,7 +11,7 @@ export default function FAQPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-syf-dark text-white pt-28 pb-12">
+    <div className="min-h-screen bg-syf-dark text-white pt-28 pb-12">gi
       <div className="container mx-auto px-4 max-w-3xl">
         <Link href="/" className="inline-flex items-center gap-2 text-syf-red hover:underline mb-8 font-bold">
           <ArrowLeft size={20} /> Volver al inicio
