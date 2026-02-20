@@ -27,16 +27,13 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between gap-4 md:gap-8">
           
           {/* 1. LOGO (Izquierda) */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">          
-            <img src="/images/Logo-syf-blanco.png" alt="Cerrajería SyF" className="h-12 w-12 object-contain" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-white tracking-tight leading-tight">
-                Cerrajería SyF
-              </span>
-              <span className="text-xs text-gray-400">Automotor & Repuestos</span>
-            </div>
-          </Link>
-
+         <Link href="/" className="flex items-center shrink-0 transition-transform hover:scale-105">
+          <img 
+          src="/images/logo-completo.png" 
+          alt="Cerrajería SyF" 
+          className="h-14 object-contain" // Ajustá el h-14 si queda muy chico o grande
+          />
+        </Link>
           {/* 2. BUSCADOR (Centro - Oculto en móvil muy chico) */}
           <div className="hidden sm:flex flex-1 items-center justify-center max-w-2xl">
             <form onSubmit={handleSearch} className="flex w-full shadow-lg">
