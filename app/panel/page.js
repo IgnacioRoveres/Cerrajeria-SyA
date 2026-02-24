@@ -161,6 +161,7 @@ export default function AdminPage() {
                   <option>Cerrajería</option>
                   <option>Accesorios</option>
                   <option>Herramientas</option>
+                  <option value="Servicios">Servicios</option>
                 </select>
               </div>
             </div>

@@ -33,7 +33,7 @@ export default function CatalogoPage() {
 
   // --- LÓGICA DE FILTROS ---
   useEffect(() => {
-    let result = [...products];
+    let result = products.filter(p => p.category !== "Servicios");
 
     // Filtro por Buscador
     if (searchTerm) {
@@ -50,7 +50,7 @@ export default function CatalogoPage() {
     // Ordenamiento
     if (sortOrder === "price-asc") {
       result.sort((a, b) => a.price - b.price);
-    } else if (sortOrder === "price-desc") {
+    } else if (sortOrder === "price-desc") {  
       result.sort((a, b) => b.price - a.price);
     }
 
