@@ -4,23 +4,25 @@ import Link from "next/link";
 import { Trash2, MessageCircle, ArrowLeft } from "lucide-react";
 
 export default function CarritoPage() {
-  const { cart, removeFromCart, totalPrice, clearCart } = useCart();
+  const { cart, removeFromCart, total, clearCart } = useCart(); // Ojo: en nuestro context le pusimos 'total', no 'totalPrice'
 
   // Generar mensaje de WhatsApp
   const handleCheckout = () => {
-    // 1. Armamos el texto base legible
+    // 1.Texto base legible
     let text = "Hola Cerrajería SyF! 👋\nQuiero consultar stock por este pedido:\n\n";
     
     cart.forEach((item) => {
-      text += `▪ ${item.quantity}x ${item.title} ($${item.price * item.quantity})\n`;
+      text += `▪ ${item.quantity}x ${item.name} ($${item.price * item.quantity})\n`;
     });
 
-    text += `\n*Total Estimado: $${totalPrice}*`;
+    text += `\n*Total Estimado: $${total}*`;
     
-    // 2. Lo codificamos para que sea una URL válida de WhatsApp
+    // 2. Codificamos para que sea una URL válida de WhatsApp
     const encodedText = encodeURIComponent(text);
     
-    window.open(`https://wa.me/5492213620962?text=${encodedText}`, "_blank");
+    // 3. Numero de Whatsapp
+    const phoneNumber = "5492215544121"; 
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank");
   };
 
   if (cart.length === 0) {
@@ -52,18 +54,20 @@ export default function CarritoPage() {
         <div className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden mb-8">
           {cart.map((item) => (
             <div key={item._id} className="flex items-center gap-4 p-4 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors">
-              {/* Imagen pequeña */}
-              <div className="h-20 w-20 bg-black rounded-lg overflow-hidden flex-shrink-0 border border-white/10">
+              
+              {/* CORREGIDO: Usamos item.image (singular) */}
+              <div className="h-20 w-20 bg-white rounded-lg overflow-hidden flex-shrink-0 border border-white/10 p-1">
                 <img 
-                  src={item.images?.[0] || "https://placehold.co/600x400/1a1a1a/crimson?text=Sin+Imagen"} 
-                  alt={item.title} 
-                  className="h-full w-full object-cover" 
+                  src={item.image || "https://placehold.co/600x400/1a1a1a/crimson?text=Sin+Imagen"} 
+                  alt={item.name} 
+                  className="h-full w-full object-contain" 
                 />
               </div>
               
               {/* Info */}
               <div className="flex-grow">
-                <h3 className="font-bold text-white text-lg">{item.title}</h3>
+                {/* CORREGIDO: Usamos item.name */}
+                <h3 className="font-bold text-white text-lg">{item.name}</h3>
                 <div className="flex items-center gap-2 mt-1">
                     <span className="text-sm text-gray-400">Cant: {item.quantity}</span>
                     <span className="text-sm text-gray-600">|</span>
@@ -95,12 +99,13 @@ export default function CarritoPage() {
                 <span className="text-gray-400 block mb-1">Total Estimado</span>
                 <p className="text-xs text-gray-500">Precios sujetos a confirmación de stock</p>
             </div>
-            <span className="text-4xl font-bold text-white">${totalPrice}</span>
+            {/* CORREGIDO: Usamos total (que viene del context) */}
+            <span className="text-4xl font-bold text-white">${total}</span>
           </div>
 
           <button 
             onClick={handleCheckout}
-            className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-[1.01] shadow-lg shadow-green-900/50"
+            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-[1.01] shadow-lg shadow-green-900/20"
           >
             <MessageCircle size={28} />
             <span className="text-lg">Finalizar pedido por WhatsApp</span>
