@@ -22,7 +22,7 @@ const ProductSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, "La categoría es obligatoria"],
-      enum: ["Automotor", "Residencial", "Accesorios", "Cerrajería"], 
+      enum: ["Automotor", "Residencial", "Cerrajería", "Accesorios", "Herramientas", "Todas", "Servicios"], 
     },
     image: {
       type: String,
