@@ -12,7 +12,7 @@ export default function ServiciosPage() {
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
-        // 🔥 MAGIA: Filtramos SOLO los que son categoría "Servicios"
+        //Filtramos SOLO los que son categoría "Servicios"
         const soloServicios = data.filter(item => item.category === "Servicios");
         setServicios(soloServicios);
         setLoading(false);
@@ -21,7 +21,7 @@ export default function ServiciosPage() {
   }, []);
 
   const handleConsultar = (nombreServicio) => {
-    const phoneNumber = "5492215544121"; // Ya puse el tuyo real
+    const phoneNumber = "5492215544121";
     const text = `Hola SyF! 👋 Quiero consultar por el servicio de: *${nombreServicio}*`;
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
