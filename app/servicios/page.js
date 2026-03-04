@@ -21,7 +21,7 @@ export default function ServiciosPage() {
   }, []);
 
   const handleConsultar = (nombreServicio) => {
-    const phoneNumber = "5492213620962"; // Ya puse el tuyo real
+    const phoneNumber = "5492215544121"; // Ya puse el tuyo real
     const text = `Hola SyF! 👋 Quiero consultar por el servicio de: *${nombreServicio}*`;
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
