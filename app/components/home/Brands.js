@@ -93,9 +93,6 @@ export default function Brands() {
         <div className="text-center">
           <p className="text-gray-400 text-lg border-t border-white/10 pt-8 inline-block">
             Y muchas marcas más.{" "}
-            <Link href="/contacto" className="text-white font-bold hover:text-syf-red transition-colors underline decoration-syf-red/30 underline-offset-4">
-              Consultanos por tu vehículo específico.
-            </Link>
           </p>
         </div>
 
